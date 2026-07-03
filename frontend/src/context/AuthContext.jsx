@@ -9,7 +9,10 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   // Set default baseURL for API requests
-  axios.defaults.baseURL = import.meta.env.DEV ? 'http://127.0.0.1:5000' : '';
+  const apiBaseURL = import.meta.env.DEV
+    ? 'http://127.0.0.1:5000'
+    : 'https://gym-workout-tracker-25bv.onrender.com';
+  axios.defaults.baseURL = apiBaseURL;
 
   useEffect(() => {
     const initAuth = async () => {
